@@ -15,3 +15,11 @@ deploy:
   kubectl:
     manifests:
     - loto-deploy.yaml
+profiles:
+  - name: current
+    activation:
+      - kubeContext: minikube
+        command: dev
+  - name: new
+    activation:
+      - kubeContext: k8s-1.16
