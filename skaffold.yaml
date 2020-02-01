@@ -1,0 +1,17 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+metadata:
+  name: loto
+build:
+  artifacts:
+  - image: jblaskowich/loto
+    kaniko:
+      cache:
+        repo: jblaskowich/loto
+  cluster:
+    dockerConfig:
+      secretName: docker-cfg
+deploy:
+  kubectl:
+    manifests:
+    - loto-deploy.yaml
