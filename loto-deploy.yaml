@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: test
-        image: loto:v1
+        image: loto

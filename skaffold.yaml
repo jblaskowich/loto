@@ -3,9 +3,6 @@ kind: Config
 metadata:
   name: loto
 build:
-  tagPolicy:
-    envTemplate:
-      template: "{{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
   artifacts:
   - image: loto
     buildpack:
