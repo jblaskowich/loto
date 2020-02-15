@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: test
-        image: jblaskowich/loto
+        image: loto:v1

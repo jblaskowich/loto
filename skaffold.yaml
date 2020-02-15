@@ -3,23 +3,14 @@ kind: Config
 metadata:
   name: loto
 build:
+  tagPolicy:
+    envTemplate:
+      template: "{{.IMAGE_NAME}}:{{.IMAGE_TAG}}"
   artifacts:
-  - image: jblaskowich/loto
-    kaniko:
-      cache:
-        repo: jblaskowich/loto
-  cluster:
-    dockerConfig:
-      secretName: docker-cfg
+  - image: loto
+    buildpack:
+      builder: "cloudfoundry/cnb:tiny"
 deploy:
   kubectl:
     manifests:
     - loto-deploy.yaml
-profiles:
-  - name: current
-    activation:
-      - kubeContext: minikube
-        command: dev
-  - name: new
-    activation:
-      - kubeContext: k8s-1.16
